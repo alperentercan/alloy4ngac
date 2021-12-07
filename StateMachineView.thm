@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<projection> <type name="sm/time/Time"/> </projection>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="Prohibition_FinishBuildingB1_1"/>
+   <type name="Prohibition_FinishBuildingB1_2"/>
+   <type name="Prohibition_FinishBuildingB2_1"/>
+   <type name="Prohibition_FinishBuildingB2_2"/>
+   <type name="Prohibition_FinishBuildingB3_1"/>
+   <type name="Prohibition_FinishBuildingB3_2"/>
+   <type name="Prohibition_ImportanceOrder"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="rules/P1"/>
+   <type name="rules/P2"/>
+   <type name="rules/P3"/>
+   <type name="rules/P4"/>
+   <type name="rules/P5"/>
+   <type name="rules/P6"/>
+   <type name="rules/P7"/>
+   <type name="rules/P8"/>
+   <type name="seq/Int"/>
+   <type name="sm/Fire"/>
+   <type name="sm/NoFire"/>
+   <type name="rules/graph/DropPayload"/>
+   <type name="sm/time/Time"/>
+   <set name="$access_prohibition_prioritized_act" type="rules/graph/Actions"/>
+   <set name="$roomExt_t" type="sm/time/Time"/>
+</node>
+
+<node hideunconnected="yes" shape="Box" color="Red" label="Operation">
+   <type name="sm/Operation"/>
+</node>
+
+<node label="B1">
+   <type name="rules/graph/B1"/>
+</node>
+
+<node label="B2">
+   <type name="rules/graph/B2"/>
+</node>
+
+<node label="B3">
+   <type name="rules/graph/B3"/>
+</node>
+
+<node label="CityA">
+   <type name="rules/graph/CityA"/>
+</node>
+
+<node label="F1B1">
+   <type name="rules/graph/F1B1"/>
+</node>
+
+<node label="F1B2">
+   <type name="rules/graph/F1B2"/>
+</node>
+
+<node label="F1B3">
+   <type name="rules/graph/F1B3"/>
+</node>
+
+<node label="F2B1">
+   <type name="rules/graph/F2B1"/>
+</node>
+
+<node label="HighImportance">
+   <type name="rules/graph/HighImportance"/>
+</node>
+
+<node label="LowImportance">
+   <type name="rules/graph/LowImportance"/>
+</node>
+
+<node label="R1">
+   <type name="rules/graph/R1"/>
+</node>
+
+<node label="R1Node">
+   <type name="rules/graph/R1Node"/>
+</node>
+
+<node label="R2">
+   <type name="rules/graph/R2"/>
+</node>
+
+<node label="R2Node">
+   <type name="rules/graph/R2Node"/>
+</node>
+
+<node label="R3">
+   <type name="rules/graph/R3"/>
+</node>
+
+<node label="R3Node">
+   <type name="rules/graph/R3Node"/>
+</node>
+
+<node label="R4">
+   <type name="rules/graph/R4"/>
+</node>
+
+<node label="R4Node">
+   <type name="rules/graph/R4Node"/>
+</node>
+
+<node label="R5">
+   <type name="rules/graph/R5"/>
+</node>
+
+<node label="R5Node">
+   <type name="rules/graph/R5Node"/>
+</node>
+
+<node shape="Hexagon" label="D1Node">
+   <type name="rules/graph/D1Node"/>
+</node>
+
+<node shape="Inv Triangle" color="Gray" label="StateMachine">
+   <type name="sm/StateMachine"/>
+</node>
+
+<node shape="Lined Diamond" label="D1">
+   <type name="rules/graph/D1"/>
+</node>
+
+<node shape="Octagon" label="Drone">
+   <type name="rules/graph/Drone"/>
+</node>
+
+<node shape="Parallelogram" color="Blue" label="AutomatonState">
+   <type name="sm/AutomatonState"/>
+</node>
+
+<node showlabel="yes">
+   <set name="rules/ReachableObject" type="rules/graph/Object"/>
+</node>
+
+<node style="Bold">
+   <set name="First" type="sm/time/time/Ord"/>
+   <set name="Next" type="sm/time/time/Ord"/>
+</node>
+
+<node style="Bold" label="p">
+   <set name="$access_check_prioritized_p" type="rules/Priority"/>
+</node>
+
+<node visible="no">
+   <type name="rules/Priority"/>
+   <type name="sm/RoomStatus"/>
+   <type name="rules/graph/Actions"/>
+   <type name="rules/ord/Ord"/>
+   <type name="sm/ordering/Ord"/>
+   <type name="rules/graph/ordering/Ord"/>
+   <type name="sm/time/time/Ord"/>
+</node>
+
+<node visible="no" color="Black">
+   <type name="rules/graph/Subject"/>
+</node>
+
+<node visible="no" color="Green">
+   <type name="rules/graph/Object"/>
+</node>
+
+<node visible="no" color="White">
+   <type name="rules/graph/AttributeNodeObject"/>
+</node>
+
+<node visible="no" color="Yellow">
+   <type name="rules/graph/AttributeNodeSubject"/>
+</node>
+
+<node visible="no" showlabel="no">
+   <set name="$access_prohibition_prioritized_state" type="sm/AutomatonState"/>
+</node>
+
+<node visible="yes" color="Yellow">
+   <type name="rules/Allowance"/>
+</node>
+
+<node visible="yes" hideunconnected="yes" color="Green">
+   <type name="rules/Prohibition"/>
+</node>
+
+<node visible="yes" shape="Ellipse">
+   <type name="Allowance_BaseAllowance"/>
+</node>
+
+<edge color="Gray" constraint="no">
+   <relation name="Next"> <type name="rules/ord/Ord"/> <type name="rules/Priority"/> <type name="rules/Priority"/> </relation>
+   <relation name="Next"> <type name="sm/ordering/Ord"/> <type name="sm/RoomStatus"/> <type name="sm/RoomStatus"/> </relation>
+   <relation name="Next"> <type name="rules/graph/ordering/Ord"/> <type name="rules/graph/Actions"/> <type name="rules/graph/Actions"/> </relation>
+</edge>
+
+<edge color="Gray" visible="no" attribute="yes" constraint="no">
+   <relation name="act"> <type name="sm/Operation"/> <type name="rules/graph/Actions"/> </relation>
+   <relation name="action_set"> <type name="rules/Allowance"/> <type name="rules/graph/Actions"/> </relation>
+   <relation name="action_set"> <type name="rules/Prohibition"/> <type name="rules/graph/Actions"/> </relation>
+   <relation name="children"> <type name="rules/graph/AttributeNodeObject"/> <type name="rules/graph/AttributeNodeObject"/> </relation>
+   <relation name="children"> <type name="rules/graph/AttributeNodeSubject"/> <type name="rules/graph/AttributeNodeSubject"/> </relation>
+   <relation name="curr"> <type name="sm/AutomatonState"/> <type name="rules/graph/Object"/> </relation>
+   <relation name="First"> <type name="rules/ord/Ord"/> <type name="rules/Priority"/> </relation>
+   <relation name="First"> <type name="sm/ordering/Ord"/> <type name="sm/RoomStatus"/> </relation>
+   <relation name="First"> <type name="rules/graph/ordering/Ord"/> <type name="rules/graph/Actions"/> </relation>
+   <relation name="NodeID"> <type name="rules/graph/Object"/> <type name="rules/graph/AttributeNodeObject"/> </relation>
+   <relation name="NodeID"> <type name="rules/graph/Subject"/> <type name="rules/graph/AttributeNodeSubject"/> </relation>
+   <relation name="obj"> <type name="sm/Operation"/> <type name="rules/graph/Object"/> </relation>
+   <relation name="object_attribute"> <type name="rules/Allowance"/> <type name="rules/graph/AttributeNodeObject"/> </relation>
+   <relation name="object_attribute"> <type name="rules/Prohibition"/> <type name="rules/graph/AttributeNodeObject"/> </relation>
+   <relation name="ObjectActions"> <type name="rules/graph/Object"/> <type name="rules/graph/Actions"/> </relation>
+   <relation name="priority"> <type name="rules/Allowance"/> <type name="rules/Priority"/> </relation>
+   <relation name="priority"> <type name="rules/Prohibition"/> <type name="rules/Priority"/> </relation>
+   <relation name="state_map"> <type name="sm/AutomatonState"/> <type name="rules/graph/Object"/> <type name="sm/RoomStatus"/> </relation>
+   <relation name="sub"> <type name="sm/Operation"/> <type name="rules/graph/Subject"/> </relation>
+   <relation name="subject_attribute"> <type name="rules/Allowance"/> <type name="rules/graph/AttributeNodeSubject"/> </relation>
+   <relation name="subject_attribute"> <type name="rules/Prohibition"/> <type name="rules/graph/AttributeNodeSubject"/> </relation>
+   <relation name="SubjectActions"> <type name="rules/graph/Subject"/> <type name="rules/graph/Actions"/> </relation>
+</edge>
+
+<edge layout="yes">
+   <relation name="state_set"> <type name="rules/Allowance"/> <type name="sm/AutomatonState"/> </relation>
+</edge>
+
+<edge visible="no">
+   <relation name="$access_check_prioritized_p&apos;"> <type name="rules/graph/Object"/> <type name="rules/Priority"/> </relation>
+   <relation name="$access_prohibition_prioritized_act&apos;"> <type name="rules/graph/Object"/> <type name="rules/graph/Actions"/> </relation>
+</edge>
+
+<edge visible="no" attribute="no">
+   <relation name="$access_prohibition_prioritized_state&apos;"> <type name="rules/graph/Object"/> <type name="sm/AutomatonState"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
